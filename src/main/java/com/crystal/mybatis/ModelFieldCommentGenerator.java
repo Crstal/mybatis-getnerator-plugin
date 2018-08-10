@@ -10,7 +10,7 @@ import org.mybatis.generator.internal.DefaultCommentGenerator;
 * @Description: 注释
 * @Date: 19:00 2018/8/9
 **/
-public class MyCommentGenerator extends DefaultCommentGenerator {
+public class ModelFieldCommentGenerator extends DefaultCommentGenerator {
 
     @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {

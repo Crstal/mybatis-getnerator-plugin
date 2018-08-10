@@ -20,7 +20,7 @@ import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 * @Description: Java 类 不适用Example
 * @Date: 19:01 2018/8/9
 **/
-public class MyJavaMapperGenerator extends JavaMapperGenerator {
+public class NoExampleJavaMapperGenerator extends JavaMapperGenerator {
 
     @Override
     public List<CompilationUnit> getCompilationUnits() {
@@ -72,6 +72,6 @@ public class MyJavaMapperGenerator extends JavaMapperGenerator {
 
     @Override
     public AbstractXmlGenerator getMatchedXMLGenerator() {
-        return new MyXMLMapperGenerator();
+        return new NoExampleXMLMapperGenerator();
     }
 }

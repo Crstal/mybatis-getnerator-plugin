@@ -12,7 +12,7 @@ import static org.mybatis.generator.internal.util.messages.Messages.getString;
 * @Description: xml文件
 * @Date: 19:01 2018/8/9
 **/
-public class MyXMLMapperGenerator extends XMLMapperGenerator {
+public class NoExampleXMLMapperGenerator extends XMLMapperGenerator {
 
     protected XmlElement getSqlMapElement() {
         FullyQualifiedTable table = introspectedTable.getFullyQualifiedTable();
