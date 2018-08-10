@@ -3,11 +3,11 @@
 #### 用于使用mybatis-generator自动生成代码时的插件
 
 ## 类说明：
-      LombokPlugin类会添加一些Lombok的注解，让代码更简洁<br/>
-      IgnorePlugin类可以生成Model的时候忽略一些字段<br/>
-      ModelFieldCommentGenerator类在生成Model的时候添加中文注释<br/>
-      NoExampleJavaMapperGenerator类生成的Mapper类不包含Example<br/>
-      NoExampleXMLMapperGenerator类生成的Mapper.xml文件不包含Example<br/>
+  LombokPlugin类会添加一些Lombok的注解，让代码更简洁<br/>
+  IgnorePlugin类可以生成Model的时候忽略一些字段<br/>
+  ModelFieldCommentGenerator类在生成Model的时候添加中文注释<br/>
+  NoExampleJavaMapperGenerator类生成的Mapper类不包含Example<br/>
+  NoExampleXMLMapperGenerator类生成的Mapper.xml文件不包含Example<br/>
   
 ## 在Maven项目中使用
 
