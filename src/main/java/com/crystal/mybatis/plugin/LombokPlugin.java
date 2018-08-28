@@ -21,8 +21,14 @@ import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 **/
 public class LombokPlugin extends PluginAdapter {
 
+    private String[] ignoreFields;
+
     @Override
     public boolean validate(List<String> list) {
+        String ignoreField = properties.getProperty("ignoreFields");
+        if (stringHasValue(ignoreField)) {
+            ignoreFields = ignoreField.split(",");
+        }
         return true;
     }
 
@@ -72,5 +78,17 @@ public class LombokPlugin extends PluginAdapter {
     private String date2Str(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         return sdf.format(date);
+    }
+
+    @Override
+    public boolean modelFieldGenerated(Field field, TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn, IntrospectedTable introspectedTable, ModelClassType modelClassType) {
+        if (ignoreFields != null) {
+            for (String ignoreField : ignoreFields) {
+                if (introspectedColumn.getActualColumnName().equalsIgnoreCase(ignoreField)) {
+                    return false;
+                }
+            }
+        }
+        return super.modelFieldGenerated(field, topLevelClass, introspectedColumn, introspectedTable, modelClassType);
     }
 }

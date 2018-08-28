@@ -4,8 +4,8 @@
 
 ## 类说明：
   LombokPlugin类会添加一些Lombok的注解，让代码更简洁<br/>
-  IgnorePlugin类可以生成Model的时候忽略一些字段<br/>
   ModelFieldCommentGenerator类在生成Model的时候添加中文注释<br/>
+  BaseMapperGeneratorPlugin类生成Mapper
   
 ## 在Maven项目中使用
 
@@ -48,7 +48,10 @@
         <property name="endingDelimiter" value="`"/>
 
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-
+        
+        <plugin type="com.crystal.mybatis.plugin.BaseMapperGeneratorPlugin">
+            <property name="rootInterface" value="com.crystal.blog.dao.mapper.base.BaseMapper"/>
+        </plugin>
         <plugin type="com.crystal.mybatis.plugin.LombokPlugin"/>
 
         <!-- 自定义方法 -->
