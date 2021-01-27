@@ -49,8 +49,15 @@
 
         <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         
-        <plugin type="com.crystal.mybatis.plugin.BaseMapperGeneratorPlugin">
+         <!-- <plugin type="com.crystal.mybatis.plugin.BaseMapperGeneratorPlugin">
             <property name="rootInterface" value="com.crystal.blog.dao.mapper.base.BaseMapper"/>
+        </plugin>-->
+        <!-- 生成带有Ext的Mapper-->
+        <plugin type="com.crystal.mybatis.plugin.noexample.BaseMapperExtGeneratorPlugin">
+            <property name="name" value="BaseMapper"/>
+            <property name="targetPackage" value="com.crystal.mybatis.example.mapper"/>
+            <property name="targetProject" value="/Users/mac/IdeaProjects/mybatis-getnerator-plugin/src/main/java"/>
+            <property name="expandTargetPackage" value="com.crystal.mybatis.example.mapper"/>
         </plugin>
         <plugin type="com.crystal.mybatis.plugin.LombokPlugin"/>
 

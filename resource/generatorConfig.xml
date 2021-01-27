@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动-->
+    <classPathEntry  location="/Users/mac/Documents/apache-maven-3.5.4/m2/repository/mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar"/>
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 生成使用lombok的bean-->
+        <plugin type="com.crystal.mybatis.plugin.LombokPlugin"/>
+        <!-- 生成Mapper-->
+        <!--<plugin type="com.crystal.mybatis.plugin.noexample.BaseMapperGeneratorPlugin">-->
+            <!--<property name="rootInterface" value="com.crystal.mybatis.example.BaseMapper"/>-->
+        <!--</plugin>-->
+        <!-- 生成Service-->
+        <!--<plugin type="com.crystal.mybatis.plugin.noexample.MyBaseServicePlugin">
+            <property name="name" value="BaseService"></property>
+            <property name="targetPackageBaseService" value="com.crystal.mybatis.example.base"/>
+            <property name="targetPackageBaseServiceImpl" value="com.crystal.mybatis.example.base.impl"/>
+            <property name="targetBaseServiceProject" value="/Users/mac/IdeaProjects/mybatis-getnerator-plugin/src/main/java"/>
+            <property name="targetBaseServiceImplProject" value="/Users/mac/IdeaProjects/mybatis-getnerator-plugin/src/main/java"/>
+            <property name="targetPackageBusinessService" value="com.crystal.mybatis.example.bus"/>
+            <property name="targetPackageBusinessServiceImpl" value="com.crystal.mybatis.example.bus.impl"/>
+            <property name="targetBusinessServiceProject" value="/Users/mac/IdeaProjects/mybatis-getnerator-plugin/src/main/java"/>
+            <property name="targetBusinessServiceImplProject" value="/Users/mac/IdeaProjects/mybatis-getnerator-plugin/src/main/java"/>
+            <property name="baseDaoPackage" value="com.crystal.mybatis.example.BaseMapper"/>
+        </plugin>-->
+        <!-- 生成带有Ext的Mapper-->
+        <plugin type="com.crystal.mybatis.plugin.noexample.BaseMapperExtGeneratorPlugin">
+            <property name="name" value="BaseMapper"/>
+            <property name="targetPackage" value="com.crystal.mybatis.example.mapper"/>
+            <property name="targetProject" value="/Users/mac/IdeaProjects/mybatis-getnerator-plugin/src/main/java"/>
+            <property name="expandTargetPackage" value="com.crystal.mybatis.example.mapper"/>
+        </plugin>
+
+
+        <commentGenerator type="com.crystal.mybatis.MyCommentGenerator">
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/jinyun" userId="crystal" password="crystal">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.crystal.mybatis.example.bean"
+                            targetProject="src/main/java" >
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.crystal.mybatis.example.BaseDO" />
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="com.crystal.mybatis.example.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.crystal.mybatis.example.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <table tableName="message_record" domainObjectName="MessageRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>
